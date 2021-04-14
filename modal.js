@@ -13,19 +13,19 @@
 
 
 
-    const refs = {
-      lightbox: document.querySelector('js-lightbox'),
-      lightboxImage: document.querySelector('lightbox__image'),
-      lightboxOverlay: document.querySelector('lightbox__overlay'),
-      lightboxCloseButton: document.querySelector('button[data-action="close-lightbox"]'),
-    };
+    // const refs = {
+    //   lightbox: document.querySelector('js-lightbox'),
+    //   lightboxImage: document.querySelector('lightbox__image'),
+    //   lightboxOverlay: document.querySelector('lightbox__overlay'),
+    //   lightboxCloseButton: document.querySelector('button[data-action="close-lightbox"]'),
+    // };
   
-    refs.lightboxImage.addEventListener('click', toggleModal);
-    refs.lightboxCloseButton.addEventListener('click', toggleModal);
+    // refs.lightboxImage.addEventListener('click', toggleModal);
+    // refs.lightboxCloseButton.addEventListener('click', toggleModal);
   
-    function toggleModal() {
-      refs.modal.classList.toggle('is-open');
-    }
+    // function toggleModal() {
+    //   refs.modal.classList.toggle('is-open');
+    // }
 
 // const currentOpenImg = document.querySelector('.gallery_item.is-open');
 //   if (currentOpenImg) {

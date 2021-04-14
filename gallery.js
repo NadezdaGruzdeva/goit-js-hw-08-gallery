@@ -14,7 +14,6 @@ console.log(galleryItems);
 const galleryList = document.querySelector('.js-gallery');
 const galleryListMarkup = createGalleryListMarkup(galleryItems);
 galleryList.insertAdjacentHTML('afterbegin', galleryListMarkup);
-galleryList.addEventListener('click', onGalleryListClick(event));
 
 function createGalleryListMarkup(galleryItems) {
   return galleryItems.map(
@@ -37,28 +36,32 @@ function createGalleryListMarkup(galleryItems) {
   .join('')
 }
 
-function onGalleryListClick(event) {
+galleryList.addEventListener('click', function(event) {
   //проверка куда кликнули
-  event.preventDefault();
-  const isGallery = event.target.classList.contains('js-gallery');
-  if (!isGallery) {
-    return;
-  }
-  const openEl = event.target;
-  const openGalleryItem = openEl.querySelector('.gallery__item');
-  // openGalleryItem.classList.add('is-open');
-  console.log(openGalleryItem + "#");
-  }
+   event.preventDefault();
+  // const isGallery = event.target.classList.contains('ul.js-gallery');
+  if (event.target.nodeName !== "IMG") return;
+  
+  const imgSource = event.target.getAttribute('data-source');
+  document.querySelector('.lightbox__image').src = imgSource;
+  document.querySelector('.js-lightbox').classList.add('is-open');
+}
+);
+
+document.querySelector('.lightbox__button').addEventListener('click', closeModal);
+document.querySelector('.lightbox__overlay').addEventListener('click', closeModal);
+// window.addEventListener('onkeypress', function (event) {
+//   if (event.key === "Escape") {
+//     closeModal;
+//   }
+//   console.log('5')
+// });
+
+
+function closeModal() {
+  document.querySelector('.js-lightbox').classList.remove('is-open');
+}
 
   
-//   const currentOpenImg = document.querySelector('.gallery_item.is-open');
-//   if (currentOpenImg) {
-//     currentOpenImg.classList.remove('is-open')
-//   }
 
-//   const openEl = evt.target;
-//   const parentGalleryItem = openEl.closest('.gallery__item')
-//   parentGalleryItem.classList.add('is-open');
-//   //console.log(evt.target);
-// }
 
